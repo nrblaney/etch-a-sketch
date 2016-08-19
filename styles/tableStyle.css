@@ -1,0 +1,20 @@
+
+#container {
+	width:	960px;
+	height: 960px;
+}
+
+.unlit {
+	color: black;
+}
+
+.lit {
+	background-color: blue;
+}
+div.box {
+
+	overflow: hidden;
+	height: 10;
+	width: 10;
+	
+}
