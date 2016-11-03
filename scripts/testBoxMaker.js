@@ -2,32 +2,50 @@
 var windowHeight = 400;
 var windowWidth = 400;
 
-var sqDivs = 16;
 //var numBoxes = sqDivs * sqDivs;
-var boxHeight = windowHeight / (sqDivs);
-var boxWidth = windowWidth / (sqDivs);
 
 
-$(document).ready(function(){
+function boxMaker(sqDivs) {
+	var boxHeight = windowHeight / (sqDivs);
+	var boxWidth = windowWidth / (sqDivs);
+
 	for(i = 0; i <= sqDivs - 1; i++) {
 		$('table').append('<tr><td><div class="box" style="width:'+ boxWidth +'px;height:'+ boxHeight +'px;" </div></td></tr>');
 	}
 	for(i = 0; i <= sqDivs - 2; i++) {
 		$('tr').append('<td><div class="box" style="width:'+ boxWidth +'px;height:'+ boxHeight +'px;"</div</td>');
 	}
-//changes div color on hover
-$('.box').hover(function(){
+}
+function boxLighter() {
+	//changes box color on hover
+	$('.box').hover(function(){
 	$(this).addClass("lit");
 	}, function(){
 	// uncomment the below to reset the div class when the mouse leaves.
 	// $(this).removeClass("lit");
 	});
-// Button to reset table
-$('button').click(function(){ 
-	alert("You've clicked the button!");
-	$('table').empty();
+}
 
-});
+function boxReset() {
+	// Button to reset table
+	$('button').click(function(){ 
+		alert("You've clicked the button!");
+		$('table').empty();
+		boxMaker(prompt("How many square units would you like the next window to be?"));
+		boxLighter();
+
+	});
+
+
+}
+
+$(document).ready(function(){
+
+	boxMaker(16);
+	boxLighter();
+	boxReset();
+
+
 
 });
 
